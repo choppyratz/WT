@@ -15,7 +15,7 @@
 			<div class="col-10">
 				<div class="quiz-list pt-4">
 					<div class="card" style="width: 18rem;">
-  						<img src="${pageContext.request.contextPath}/img/cat.jpg" class="card-img-top" alt="...">
+  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
   						<div class="card-body">
   							<h5 class="card-title">Тест по зоофилии</h5>
   							<p class="card-text">Описание теста по зоофилии</p>
