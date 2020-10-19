@@ -9,7 +9,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="header.jsp">
+  		<jsp:param name="user" value="${user}"/>
+	</jsp:include>
 	<div class="container">
 		<div class="row">
 			<div class="col-10">
@@ -23,7 +25,7 @@
   						</div>
 					</div>
 					<div class="card" style="width: 18rem;">
-  						<img src="assets/img/cat.jpg" class="card-img-top" alt="...">
+  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
   						<div class="card-body">
   							<h5 class="card-title">Тест по зоофилии</h5>
   							<p class="card-text">Описание теста по зоофилии</p>
@@ -31,7 +33,7 @@
   						</div>
 					</div>
 					<div class="card" style="width: 18rem;">
-  						<img src="assets/img/cat.jpg" class="card-img-top" alt="...">
+  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
   						<div class="card-body">
   							<h5 class="card-title">Тест по зоофилии</h5>
   							<p class="card-text">Описание теста по зоофилии</p>
@@ -39,7 +41,7 @@
   						</div>
 					</div>
 					<div class="card" style="width: 18rem;">
-  						<img src="assets/img/cat.jpg" class="card-img-top" alt="...">
+  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
   						<div class="card-body">
   							<h5 class="card-title">Тест по зоофилии</h5>
   							<p class="card-text">Описание теста по зоофилии</p>
@@ -47,7 +49,7 @@
   						</div>
 					</div>
 					<div class="card" style="width: 18rem;">
-  						<img src="assets/img/cat.jpg" class="card-img-top" alt="...">
+  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
   						<div class="card-body">
   							<h5 class="card-title">Тест по зоофилии</h5>
   							<p class="card-text">Описание теста по зоофилии</p>
@@ -55,7 +57,7 @@
   						</div>
 					</div>
 					<div class="card" style="width: 18rem;">
-  						<img src="assets/img/cat.jpg" class="card-img-top" alt="...">
+  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
   						<div class="card-body">
   							<h5 class="card-title">Тест по зоофилии</h5>
   							<p class="card-text">Описание теста по зоофилии</p>
@@ -63,7 +65,7 @@
   						</div>
 					</div>
 					<div class="card" style="width: 18rem;">
-  						<img src="assets/img/cat.jpg" class="card-img-top" alt="...">
+  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">		
   						<div class="card-body">
   							<h5 class="card-title">Тест по зоофилии</h5>
   							<p class="card-text">Описание теста по зоофилии</p>

@@ -1,13 +1,18 @@
 package by.choppyratz.quizApp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.ServletContext;
+import java.io.PrintWriter;
+import java.util.Random;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import by.choppyratz.quizApp.service.AuthService;
+import by.choppyratz.quizApp.bean.User;
+import by.choppyratz.quizApp.dao.*;
 
 /**
  * Servlet implementation class HelloServlet
@@ -26,36 +31,24 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.setContentType("text/html");
-		//request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
-		response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
-        try{
-            String url = "jdbc:mysql://localhost/quizApp?serverTimezone=Europe/Moscow&useSSL=false";
-            String username = "root";
-            String password = "";
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
-                  
-                writer.println("Connection to ProductDB succesfull!");
-            }
-        }
-        catch(Exception ex){
-            writer.println("Connection failed...");
-            writer.println(ex);
-        }
-        finally {
-            writer.close();
-        }
+		response.setContentType("text/html; charset=UTF-8");
+		
+		if (AuthService.checkAuth(request) == null) {
+			request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
+		}else {
+			response.sendRedirect(request.getContextPath());
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		if (AuthService.AuthUser(request.getParameter("email"), request.getParameter("password"), request)) {
+			response.sendRedirect(request.getContextPath());
+		}else {
+			request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
+		}
 	}
 
 }

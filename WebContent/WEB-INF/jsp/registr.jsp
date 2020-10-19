@@ -11,24 +11,24 @@
 	<div class="container">
 		<div class="row">
 			<div class="login-form col-6 offset-3 vh-100  d-flex align-items-center">
-				<form class="w-100">
+				<form class="w-100" method="POST" action="">
 					<h1 class="text-center">Quiz App</h1>
 					<div class="form-group">
   					  <label for="exampleInputEmail1">Имя</label>
-  					  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  					  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
   					</div>
   					<div class="form-group">
   					  <label for="exampleInputEmail1">Фамилия</label>
-  					  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  					  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="surname">
   					</div>
   					<div class="form-group">
   					  <label for="exampleInputEmail1">Email</label>
-  					  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  					  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="email">
   					  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   					</div>
   					<div class="form-group">
   					  <label for="exampleInputPassword1">Пароль</label>
-  					  <input type="password" class="form-control" id="exampleInputPassword1">
+  					  <input type="password" class="form-control" id="exampleInputPassword1"  name="password">
   					</div>
   					<a href="login.html">Уже зарегстрированы? Войти</a>
   					<div class="d-flex justify-content-center mt-2">

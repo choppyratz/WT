@@ -1,14 +1,14 @@
 package by.choppyratz.quizApp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.sql.DriverManager;
-
+import by.choppyratz.quizApp.service.AuthService;
+import javax.servlet.ServletContext;
+import by.choppyratz.quizApp.bean.User;
 /**
  * Servlet implementation class HelloServlet
  */
@@ -26,28 +26,13 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html");
+		response.setContentType("text/html; charset=UTF-8");
+		User user = AuthService.checkAuth(request);
+		if (user != null) {
+	        ServletContext selvletContext = getServletContext();
+	        selvletContext.setAttribute("user", user);
+		}
 		request.getRequestDispatcher("WEB-INF/jsp/main.jsp").forward(request, response);
-		/*response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
-        try{
-            String url = "jdbc:mysql://localhost/quizApp?serverTimezone=Europe/Moscow&useSSL=false";
-            String username = "root";
-            String password = "";
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
-                  
-                writer.println("Connection to ProductDB succesfull!");
-            }
-        }
-        catch(Exception ex){
-            writer.println("Connection failed...");
-            writer.println(ex);
-        }
-        finally {
-            writer.close();
-        }*/
 	}
 
 	/**

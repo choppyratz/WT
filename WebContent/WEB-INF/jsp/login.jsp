@@ -11,20 +11,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="login-form col-6 offset-3 vh-100  d-flex align-items-center">
-				<form class="w-100">
+				<form class="w-100" method="POST" action="">
 					<h1 class="text-center">Quiz App</h1>
   					<div class="form-group">
   					  <label for="exampleInputEmail1">Email</label>
-  					  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  					  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
   					  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   					</div>
   					<div class="form-group">
   					  <label for="exampleInputPassword1">Пароль</label>
-  					  <input type="password" class="form-control" id="exampleInputPassword1">
-  					</div>
-  					<div class="form-group form-check mb-0">
-  					  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-  					  <label class="form-check-label" for="exampleCheck1">Запомнить</label>
+  					  <input type="password" class="form-control" id="exampleInputPassword1" name="password">
   					</div>
   					<a href="registr.html">Еще не зарегестированы? Зарегестриоваться</a>
   					<div class="d-flex justify-content-center mt-2">
