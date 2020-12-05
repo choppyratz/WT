@@ -70,7 +70,8 @@ public class AuthService {
 		}
 	}
 	
-	public static boolean LogoutUser(HttpServletRequest request) {
-		return true;
+	public static void LogoutUser(HttpServletRequest request) {
+		request.getSession().invalidate();
+		//request.getSession().setAttribute("authToken", "null");
 	}
 }

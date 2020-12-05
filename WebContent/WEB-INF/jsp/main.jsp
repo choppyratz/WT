@@ -16,62 +16,16 @@
 		<div class="row">
 			<div class="col-10">
 				<div class="quiz-list pt-4">
-					<div class="card" style="width: 18rem;">
-  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
-  						<div class="card-body">
-  							<h5 class="card-title">Тест по зоофилии</h5>
-  							<p class="card-text">Описание теста по зоофилии</p>
-  							<a href="#" class="btn btn-primary">Пройти тест</a>
-  						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
-  						<div class="card-body">
-  							<h5 class="card-title">Тест по зоофилии</h5>
-  							<p class="card-text">Описание теста по зоофилии</p>
-  							<a href="#" class="btn btn-primary">Пройти тест</a>
-  						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
-  						<div class="card-body">
-  							<h5 class="card-title">Тест по зоофилии</h5>
-  							<p class="card-text">Описание теста по зоофилии</p>
-  							<a href="#" class="btn btn-primary">Пройти тест</a>
-  						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
-  						<div class="card-body">
-  							<h5 class="card-title">Тест по зоофилии</h5>
-  							<p class="card-text">Описание теста по зоофилии</p>
-  							<a href="#" class="btn btn-primary">Пройти тест</a>
-  						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
-  						<div class="card-body">
-  							<h5 class="card-title">Тест по зоофилии</h5>
-  							<p class="card-text">Описание теста по зоофилии</p>
-  							<a href="#" class="btn btn-primary">Пройти тест</a>
-  						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
-  						<div class="card-body">
-  							<h5 class="card-title">Тест по зоофилии</h5>
-  							<p class="card-text">Описание теста по зоофилии</p>
-  							<a href="#" class="btn btn-primary">Пройти тест</a>
-  						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-  						<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">		
-  						<div class="card-body">
-  							<h5 class="card-title">Тест по зоофилии</h5>
-  							<p class="card-text">Описание теста по зоофилии</p>
-  							<a href="#" class="btn btn-primary">Пройти тест</a>
-  						</div>
-					</div>
+					<c:forEach items="${quizes}" var="current">
+    					<div class="card" style="width: 18rem;">
+  							<img src="/quizApp/image/cat.jpg" class="card-img-top" alt="...">
+  							<div class="card-body">
+  								<h5 class="card-title">${current.name}</h5>
+  								<p class="card-text">${current.description}</p>
+  								<a href="quiz?id=${current.id}" class="btn btn-primary">Пройти тест</a>
+  							</div>
+						</div>
+					</c:forEach>   
 				</div>
 			</div>
 		</div>

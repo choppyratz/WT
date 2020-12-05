@@ -18,13 +18,13 @@ import by.choppyratz.quizApp.service.QuizService;
 /**
  * Servlet implementation class HelloServlet
  */
-public class TestServlet extends HttpServlet {
+public class QuizBuilderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public TestServlet() {
+    public QuizBuilderServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -35,31 +35,10 @@ public class TestServlet extends HttpServlet {
 		response.setContentType("text/html");
 		User user = AuthService.checkAuth(request);
 		ServletContext selvletContext = getServletContext();
-		if (user != null) {
+		if (user != null && user.getRoleId() == 2) {
 	        selvletContext.setAttribute("user", user);
+	        request.getRequestDispatcher("WEB-INF/jsp/quizBuilder.jsp").forward(request, response);
 		}else {
-			response.sendRedirect("/quizApp");
-			return;
-		}
-		
-		String paramId = request.getParameter("id");
-		try {
-			int id = Integer.parseInt(paramId);
-			Quiz quiz = QuizService.getQuizById(id);
-			if (quiz != null) {
-				Statistics stat = QuizService.isUserPassThisQuiz(quiz, user);
-				if (stat != null) {
-					selvletContext.setAttribute("isPassed", true);
-					selvletContext.setAttribute("stat", stat);
-				}else {
-					selvletContext.setAttribute("quiz", quiz);
-					selvletContext.setAttribute("isPassed", false);
-				}
-				request.getRequestDispatcher("WEB-INF/jsp/testPage.jsp").forward(request, response);
-			}else {
-				response.sendRedirect("/quizApp");
-			}	
-		}catch (NumberFormatException e) {
 			response.sendRedirect("/quizApp");
 		}
 	}
@@ -68,16 +47,13 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String paramId = request.getParameter("id");
-		try {
-			int id = Integer.parseInt(paramId);
-			User user = AuthService.checkAuth(request);
-			String result = QuizService.checkQuizAnswers(id, request.getParameter("answers"));
-			QuizService.writeStatistics(id, user.getId(), result);
-			response.getWriter().println(result);
-		}catch (NumberFormatException e) {
-			
-		}
+		response.setContentType("text/html");
+		String quizName = request.getParameter("name");
+		String quizDesc = request.getParameter("description");
+		String quizBody = request.getParameter("quizBody");
+		String trueAns = request.getParameter("trueAns");
+		QuizService.insertQuiz(quizName, quizDesc, quizBody, trueAns);
+		response.getWriter().println(quizBody + "answer");
 	}
 
 }

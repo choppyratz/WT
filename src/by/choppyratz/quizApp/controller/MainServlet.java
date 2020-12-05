@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import by.choppyratz.quizApp.service.AuthService;
 import javax.servlet.ServletContext;
 import by.choppyratz.quizApp.bean.User;
+import java.util.ArrayList;
+import by.choppyratz.quizApp.bean.Quiz;
+import by.choppyratz.quizApp.service.QuizService;
 /**
  * Servlet implementation class HelloServlet
  */
@@ -27,11 +30,13 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
+		ServletContext selvletContext = getServletContext();
 		User user = AuthService.checkAuth(request);
 		if (user != null) {
-	        ServletContext selvletContext = getServletContext();
 	        selvletContext.setAttribute("user", user);
 		}
+		ArrayList<Quiz> list = QuizService.getAllQuizes();
+		selvletContext.setAttribute("quizes", list);
 		request.getRequestDispatcher("WEB-INF/jsp/main.jsp").forward(request, response);
 	}
 

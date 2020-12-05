@@ -16,28 +16,14 @@
 		<div class="row">
 			<div class="col-8 offset-2 pt-4">
 				<div class="statistics-list mt-3">
-					<div class="list-group">
-  						<a href="#" class="list-group-item list-group-item-action">Тест по зоофилии</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-warning">Антоник Артем</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Гандоник Артем</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-danger">Атремик Антон</a>
+					<c:forEach items="${list}" var="current">
+					<div class="list-group pt-5">
+  						<a href="#" class="list-group-item list-group-item-action">${current.name}</a>
+  						<c:forEach items="${current.passedUsers}" var="stat">
+  							<a href="#" class="list-group-item list-group-item-action list-group-item-warning">${stat.user.name} ${stat.user.surname}</a>
+  						</c:forEach>
 					</div>
-				</div>
-				<div class="statistics-list mt-3">
-					<div class="list-group">
-  						<a href="#" class="list-group-item list-group-item-action">Тест по педофилии</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-warning">Антоник Артем</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Гандоник Артем</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-danger">Атремик Антон</a>
-					</div>
-				</div>
-				<div class="statistics-list mt-3">
-					<div class="list-group">
-  						<a href="#" class="list-group-item list-group-item-action">Тест по литроболу</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-warning">Антоник Артем</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Гандоник Артем</a>
-  						<a href="#" class="list-group-item list-group-item-action list-group-item-danger">Атремик Антон</a>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

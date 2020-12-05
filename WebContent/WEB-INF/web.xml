@@ -13,6 +13,15 @@
     	<url-pattern>/login</url-pattern>
   	</servlet-mapping>
   	
+ 	<servlet>
+    	<servlet-name>LogOutServlet</servlet-name>
+      	<servlet-class>by.choppyratz.quizApp.controller.LogOutServlet</servlet-class>
+   	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>LogOutServlet</servlet-name>
+    	<url-pattern>/logout</url-pattern>
+  	</servlet-mapping>  
+  		
   	<servlet>
     	<servlet-name>RegistrServlet</servlet-name>
       	<servlet-class>by.choppyratz.quizApp.controller.RegistrServlet</servlet-class>
@@ -32,12 +41,12 @@
   	</servlet-mapping>
   	
   	<servlet>
-    	<servlet-name>TestServlet</servlet-name>
-      	<servlet-class>by.choppyratz.quizApp.controller.TestServlet</servlet-class>
+    	<servlet-name>QuizBuilderServlet</servlet-name>
+      	<servlet-class>by.choppyratz.quizApp.controller.QuizBuilderServlet</servlet-class>
    	</servlet>
   	<servlet-mapping>
-    	<servlet-name>TestServlet</servlet-name>
-    	<url-pattern>/test</url-pattern>
+    	<servlet-name>QuizBuilderServlet</servlet-name>
+    	<url-pattern>/quizbuilder</url-pattern>
   	</servlet-mapping>
   	
   	<servlet>
@@ -56,5 +65,14 @@
   	<servlet-mapping>
     	<servlet-name>MainServlet</servlet-name>
     	<url-pattern>/</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>TestServlet</servlet-name>
+      	<servlet-class>by.choppyratz.quizApp.controller.TestServlet</servlet-class>
+   	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>TestServlet</servlet-name>
+    	<url-pattern>/quiz</url-pattern>
   	</servlet-mapping>
   </web-app>

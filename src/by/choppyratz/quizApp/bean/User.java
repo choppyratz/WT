@@ -1,6 +1,9 @@
 package by.choppyratz.quizApp.bean;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+	private static final long serialVersionUID = 2041275512219239990L;
 	private String name;
 	private String surname;
 	private String email;
@@ -65,5 +68,9 @@ public class User {
 	
 	public int getId() {
 		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 }

@@ -19,6 +19,7 @@ public class UserDAO extends DAO {
 	        ResultSet resultSet = preparedStatement.executeQuery();
 	        if(resultSet.next()){
 	        	user = new User();
+	        	user.setId(resultSet.getInt(1));
 	        	user = user.setEmail(resultSet.getString(2));
 	        	user = user.setPassword(resultSet.getString(5));
 	        	user = user.setRememberToken(resultSet.getString(7));
@@ -42,6 +43,7 @@ public class UserDAO extends DAO {
 	        ResultSet resultSet = preparedStatement.executeQuery();
 	        if(resultSet.next()){
 	        	user = new User();
+	        	user.setId(resultSet.getInt(1));
 	        	user = user.setEmail(resultSet.getString(2));
 	        	user = user.setPassword(resultSet.getString(5));
 	        	user = user.setRememberToken(resultSet.getString(7));
